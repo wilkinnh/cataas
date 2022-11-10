@@ -24,7 +24,7 @@ struct CatCollection: View {
             ScrollView {
                 LazyVGrid(columns: columns, spacing: Self.spacing) {
                     ForEach(consumer.query.cats) { cat in
-                        // request image with appropriate size
+                        // request image with appropriate size to reduce bandwidth
                         let imageUrl = cat.imageUrl(width: imageWidth)
                         
                         AsyncImage(url: imageUrl) { image in
@@ -50,7 +50,9 @@ struct CatCollection: View {
 
 struct CatCollection_Previews: PreviewProvider {
     static var previews: some View {
-        CatCollection()
-            .environmentObject(CatConsumer(query: CatQuery.exampleQuery()))
+        NavigationView {
+            CatCollection()
+                .environmentObject(CatConsumer(query: CatQuery.exampleQuery()))
+        }
     }
 }

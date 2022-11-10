@@ -7,15 +7,16 @@
 
 import Foundation
 
-struct CatQuery: Equatable {
-    let query: String
-    let cats: [Cat]
-}
-
-struct Cat: Equatable, Identifiable {
+struct Cat: Equatable, Identifiable, Codable {
     var id: String
     var tags: [String]
     var owner: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id = "_id"
+        case tags = "tags"
+        case owner = "owner"
+    }
 }
 
 extension Cat {
@@ -38,4 +39,9 @@ extension Cat {
         }
         return url
     }
+}
+
+struct CatQuery: Equatable {
+    let query: String
+    let cats: [Cat]
 }

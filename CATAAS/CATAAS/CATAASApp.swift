@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct CATAASApp: App {
+    @StateObject var consumer = CatConsumer(query: CatQuery.exampleQuery())
+    
     var body: some Scene {
         WindowGroup {
-            CatCollection()
+            NavigationView {
+                CatConjurer()
+            }
+            .environmentObject(consumer)
         }
     }
 }
