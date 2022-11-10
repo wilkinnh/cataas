@@ -11,7 +11,7 @@ import SwiftUI
 struct CATAASApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CatCollection()
         }
     }
 }

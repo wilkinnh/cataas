@@ -8,17 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		43059792291D780B00814C1B /* CATAASApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43059791291D780B00814C1B /* CATAASApp.swift */; };
-		43059794291D780B00814C1B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43059793291D780B00814C1B /* ContentView.swift */; };
 		43059796291D780D00814C1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43059795291D780D00814C1B /* Assets.xcassets */; };
 		43059799291D780D00814C1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43059798291D780D00814C1B /* Preview Assets.xcassets */; };
+		430597A0291D7BF800814C1B /* CatConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305979F291D7BF800814C1B /* CatConsumer.swift */; };
+		430597A2291D7C0300814C1B /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597A1291D7C0300814C1B /* Cat.swift */; };
+		430597A8291D7C8600814C1B /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 430597A7291D7C8600814C1B /* ReSwift */; };
+		430597AA291D7D5F00814C1B /* CatCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597A9291D7D5F00814C1B /* CatCollection.swift */; };
+		430597AC291D7DFD00814C1B /* Cat+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597AB291D7DFD00814C1B /* Cat+Example.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4305978E291D780B00814C1B /* CATAAS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CATAAS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		43059791291D780B00814C1B /* CATAASApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CATAASApp.swift; sourceTree = "<group>"; };
-		43059793291D780B00814C1B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		43059795291D780D00814C1B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		43059798291D780D00814C1B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4305979F291D7BF800814C1B /* CatConsumer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatConsumer.swift; sourceTree = "<group>"; };
+		430597A1291D7C0300814C1B /* Cat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cat.swift; sourceTree = "<group>"; };
+		430597A9291D7D5F00814C1B /* CatCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollection.swift; sourceTree = "<group>"; };
+		430597AB291D7DFD00814C1B /* Cat+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cat+Example.swift"; sourceTree = "<group>"; };
+		430597AD291D801700814C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				430597A8291D7C8600814C1B /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +60,10 @@
 		43059790291D780B00814C1B /* CATAAS */ = {
 			isa = PBXGroup;
 			children = (
+				430597AD291D801700814C1B /* Info.plist */,
 				43059791291D780B00814C1B /* CATAASApp.swift */,
-				43059793291D780B00814C1B /* ContentView.swift */,
+				430597A4291D7C2100814C1B /* Model */,
+				430597A5291D7C2E00814C1B /* Views */,
 				43059795291D780D00814C1B /* Assets.xcassets */,
 				43059797291D780D00814C1B /* Preview Content */,
 			);
@@ -65,6 +76,24 @@
 				43059798291D780D00814C1B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		430597A4291D7C2100814C1B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4305979F291D7BF800814C1B /* CatConsumer.swift */,
+				430597A1291D7C0300814C1B /* Cat.swift */,
+				430597AB291D7DFD00814C1B /* Cat+Example.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		430597A5291D7C2E00814C1B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				430597A9291D7D5F00814C1B /* CatCollection.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +112,9 @@
 			dependencies = (
 			);
 			name = CATAAS;
+			packageProductDependencies = (
+				430597A7291D7C8600814C1B /* ReSwift */,
+			);
 			productName = CATAAS;
 			productReference = 4305978E291D780B00814C1B /* CATAAS.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +143,9 @@
 				Base,
 			);
 			mainGroup = 43059785291D780B00814C1B;
+			packageReferences = (
+				430597A6291D7C8600814C1B /* XCRemoteSwiftPackageReference "ReSwift" */,
+			);
 			productRefGroup = 4305978F291D780B00814C1B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43059794291D780B00814C1B /* ContentView.swift in Sources */,
+				430597A2291D7C0300814C1B /* Cat.swift in Sources */,
 				43059792291D780B00814C1B /* CATAASApp.swift in Sources */,
+				430597A0291D7BF800814C1B /* CatConsumer.swift in Sources */,
+				430597AA291D7D5F00814C1B /* CatCollection.swift in Sources */,
+				430597AC291D7DFD00814C1B /* Cat+Example.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +307,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CATAAS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CATAAS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -297,6 +336,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"CATAAS/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = CATAAS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -337,6 +377,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		430597A6291D7C8600814C1B /* XCRemoteSwiftPackageReference "ReSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReSwift/ReSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		430597A7291D7C8600814C1B /* ReSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 430597A6291D7C8600814C1B /* XCRemoteSwiftPackageReference "ReSwift" */;
+			productName = ReSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 43059786291D780B00814C1B /* Project object */;
 }
