@@ -44,8 +44,3 @@ extension Cat {
         return url
     }
 }
-
-struct CatQuery: Equatable {
-    let query: String
-    let cats: [Cat]
-}
