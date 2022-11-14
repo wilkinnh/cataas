@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CatCollection: View {
-    @EnvironmentObject var consumer: CatConsumer
+    var cats: [Cat]
+    var onLoadMore: () -> Void = {}
     
     private static let spacing: CGFloat = 1
     private let columns: [GridItem] = [
@@ -23,36 +24,87 @@ struct CatCollection: View {
             
             ScrollView {
                 LazyVGrid(columns: columns, spacing: Self.spacing) {
-                    ForEach(consumer.query.cats) { cat in
-                        // request image with appropriate size to reduce bandwidth
-                        let imageUrl = cat.imageUrl(width: imageWidth)
-                        
-                        AsyncImage(url: imageUrl) { image in
-                            image
-                                .resizable()
-                                .aspectRatio(contentMode: .fill)
-                        } placeholder: {
-                            Color(UIColor.secondarySystemBackground)
-                                .overlay {
-                                    ProgressView()
-                                        .progressViewStyle(CircularProgressViewStyle(tint: Color(UIColor.secondaryLabel)))
-                                }
+                    ForEach(cats) { cat in
+                        NavigationLink {
+                            CatDetails(cat: cat)
+                        } label: {
+                            // request image with appropriate size to reduce bandwidth
+                            let imageUrl = cat.imageUrl(width: imageWidth)
+                            CatCollectionItem(cat: cat, imageUrl: imageUrl)
                         }
-                        .frame(width: gridItemWidth, height: gridItemWidth)
-                        .aspectRatio(1, contentMode: .fill)
-                        .clipped()
+                    }
+                }
+                
+//                Color.white
+//                    .frame(height: 44)
+//                    .overlay {
+//                        ProgressView()
+//                            .progressViewStyle(CircularProgressViewStyle())
+//                    }
+//                    .overlay {
+//                        GeometryReader { bottomGeometry in
+//                            Color.clear.preference(key: LoadMoreKey.self, value: bottomGeometry.frame(in: .global))
+//                        }
+//                    }
+//                    .onPreferenceChange(LoadMoreKey.self) { bottomFrame in
+//                        if bottomFrame.minY - geometry.safeAreaInsets.top < geometry.size.height {
+//                            onLoadMore()
+//                        }
+//                    }
+            }
+        }
+    }
+}
+
+struct CatCollectionItem: View {
+    var cat: Cat
+    var imageUrl: URL
+    
+    var body: some View {
+        CatImage(url: imageUrl)
+            .overlay(overlay)
+    }
+    
+    var overlay: some View {
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                
+                if !cat.tags.isEmpty {
+                    HStack(spacing: 4) {
+                        Text("\(cat.tags.count)")
+                        Image(systemName: "tag")
+                    }
+                    .font(.subheadline)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical, 5)
+                    .background {
+                        GeometryReader { geometry in
+                            RoundedRectangle(cornerRadius: geometry.size.height / 2)
+                                .fill(Color.black.opacity(0.5))
+                        }
                     }
                 }
             }
         }
+        .padding(5)
+        .foregroundColor(.white)
+    }
+}
+
+struct LoadMoreKey: PreferenceKey {
+    static var defaultValue: CGRect = .zero
+
+    static func reduce(value: inout CGRect, nextValue: () -> CGRect) {
+        value = nextValue()
     }
 }
 
 struct CatCollection_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CatCollection()
-                .environmentObject(CatConsumer(query: CatQuery.exampleQuery()))
+            CatCollection(cats: Cat.examples())
         }
     }
 }

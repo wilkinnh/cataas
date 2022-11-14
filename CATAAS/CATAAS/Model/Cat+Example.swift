@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension CatQuery {
-    static func exampleQuery() -> CatQuery {
-        CatQuery(query: "", cats: [
+extension Cat {
+    static func examples() -> [Cat] {
+        [
             Cat(
                 id: "Rn6xqsiHb9B7qgLw",
                 tags: [
@@ -59,16 +59,7 @@ extension CatQuery {
                     "mew"
                 ],
                 owner: "null"
-            ),
-//            Cat(
-//                id: "ECRLxV5MDWHifmnd",
-//                tags: [
-//                    "cute",
-//                    "tree",
-//                    ""
-//                ],
-//                owner: "null"
-//            ),
-        ])
+            )
+        ]
     }
 }

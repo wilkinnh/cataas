@@ -10,7 +10,7 @@ import Foundation
 struct Cat: Equatable, Identifiable, Codable {
     var id: String
     var tags: [String]
-    var owner: String
+    var owner: String?
     
     enum CodingKeys: String, CodingKey {
         case id = "_id"

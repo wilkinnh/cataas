@@ -8,25 +8,41 @@
 import SwiftUI
 
 struct CatConjurer: View {
+    var tag: String
+    @State var cats: [Cat] = []
+    @State var isLoading = false
+    
     @EnvironmentObject var consumer: CatConsumer
     
-    @State private var searchText: String = ""
-    
     var body: some View {
-        CatCollection()
-            .navigationTitle("Cat As A Service")
-            .searchable(text: $searchText, placement: .navigationBarDrawer, prompt: "Search for cats")
-            .onSubmit(of: .search) {
-                consumer.queryCats(prompt: searchText)
+        CatCollection(cats: cats)
+            .navigationTitle(tag)
+            .overlay {
+                if isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle())
+                }
             }
+            .onAppear {
+                isLoading = true
+                consumer.fetchCats(tag: tag) { fetchedCats in
+                    cats.append(contentsOf: fetchedCats)
+                    isLoading = false
+                }
+            }
+    }
+    
+    func fetchPage(_ page: Int) {
+        NSLog("load page \(page)")
+        
     }
 }
 
 struct CatConjurer_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CatConjurer()
-                .environmentObject(CatConsumer(query: CatQuery.exampleQuery()))
+            CatConjurer(tag: "black cat")
+                .environmentObject(CatConsumer())
         }
     }
 }

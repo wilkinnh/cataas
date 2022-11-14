@@ -16,6 +16,8 @@
 		430597AA291D7D5F00814C1B /* CatCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597A9291D7D5F00814C1B /* CatCollection.swift */; };
 		430597AC291D7DFD00814C1B /* Cat+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597AB291D7DFD00814C1B /* Cat+Example.swift */; };
 		430597AF291D868400814C1B /* CatConjurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597AE291D868400814C1B /* CatConjurer.swift */; };
+		43B542E72921A3F400F7D607 /* CatDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B542E62921A3F400F7D607 /* CatDetails.swift */; };
+		43B542E92921C17E00F7D607 /* CatImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B542E82921C17E00F7D607 /* CatImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		430597AB291D7DFD00814C1B /* Cat+Example.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cat+Example.swift"; sourceTree = "<group>"; };
 		430597AD291D801700814C1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		430597AE291D868400814C1B /* CatConjurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatConjurer.swift; sourceTree = "<group>"; };
+		43B542E62921A3F400F7D607 /* CatDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetails.swift; sourceTree = "<group>"; };
+		43B542E82921C17E00F7D607 /* CatImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,10 +66,10 @@
 		43059790291D780B00814C1B /* CATAAS */ = {
 			isa = PBXGroup;
 			children = (
-				430597AD291D801700814C1B /* Info.plist */,
 				43059791291D780B00814C1B /* CATAASApp.swift */,
 				430597A4291D7C2100814C1B /* Model */,
 				430597A5291D7C2E00814C1B /* Views */,
+				430597AD291D801700814C1B /* Info.plist */,
 				43059795291D780D00814C1B /* Assets.xcassets */,
 				43059797291D780D00814C1B /* Preview Content */,
 			);
@@ -95,6 +99,8 @@
 			children = (
 				430597AE291D868400814C1B /* CatConjurer.swift */,
 				430597A9291D7D5F00814C1B /* CatCollection.swift */,
+				43B542E62921A3F400F7D607 /* CatDetails.swift */,
+				43B542E82921C17E00F7D607 /* CatImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,6 +185,8 @@
 				43059792291D780B00814C1B /* CATAASApp.swift in Sources */,
 				430597AF291D868400814C1B /* CatConjurer.swift in Sources */,
 				430597A0291D7BF800814C1B /* CatConsumer.swift in Sources */,
+				43B542E92921C17E00F7D607 /* CatImage.swift in Sources */,
+				43B542E72921A3F400F7D607 /* CatDetails.swift in Sources */,
 				430597AA291D7D5F00814C1B /* CatCollection.swift in Sources */,
 				430597AC291D7DFD00814C1B /* Cat+Example.swift in Sources */,
 			);

@@ -8,25 +8,23 @@
 import Foundation
 
 class CatConsumer: ObservableObject {
-    @Published private(set) var query: CatQuery
-    @Published private(set) var isSearching: Bool = false
-    
     private let session = URLSession(configuration: .default)
     private var dataTask: URLSessionDataTask?
     
-    init(query: CatQuery) {
-        self.query = query
-    }
-    
-    func queryCats(prompt: String) {
-        isSearching = true
-        
+    func fetchCats(tag: String? = nil, completion: @escaping ([Cat]) -> Void) {
         // if data task is in progress, cancel it
         dataTask?.cancel()
         
         // build request
-        let tags = prompt.split(separator: " ").joined(separator: ",")
-        guard let url = URL(string: "https://cataas.com/api/cats?tags=\(tags)&skip=0&limit=10") else {
+        guard var urlComponents = URLComponents(string: "https://cataas.com/api/cats?skip=0&limit=10000") else {
+            fatalError("malformed CATAAS api request")
+        }
+        
+        if let tag = tag {
+            urlComponents.queryItems?.append(URLQueryItem(name: "tags", value: tag))
+        }
+        
+        guard let url = urlComponents.url else {
             fatalError("malformed CATAAS api request")
         }
         
@@ -37,15 +35,25 @@ class CatConsumer: ObservableObject {
                 return
             }
             
-            do {
-                let decoder = JSONDecoder()
-                let cats = try decoder.decode([Cat].self, from: data)
+            let decoder = JSONDecoder()
+            
+            // parse json array
+            if let jsonObjects = try? JSONSerialization.jsonObject(with: data) as? [Any] {
+                // parse each individual json object so one object doesn't cause the entire list to fail
+                let cats = jsonObjects.compactMap { jsonObject in
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: jsonObject)
+                        let cat = try decoder.decode(Cat.self, from: jsonData)
+                        return cat
+                    } catch {
+                        NSLog("error parsing CATAAS api response: \(error)")
+                        return nil
+                    }
+                }
                 
                 DispatchQueue.main.async {
-                    self?.query = CatQuery(query: prompt, cats: cats)
+                    completion(cats)
                 }
-            } catch {
-                NSLog("error parsing CATAAS api response: \(error.localizedDescription)")
             }
             
             self?.dataTask = nil
