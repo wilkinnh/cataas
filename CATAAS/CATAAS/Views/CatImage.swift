@@ -27,6 +27,7 @@ struct CatImage: View {
                         
                     case .failure:
                         Image(systemName: "rectangle.slash")
+                            .font(.title)
                             .tint(Color.gray)
                         
                     default:

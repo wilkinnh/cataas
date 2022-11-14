@@ -20,6 +20,10 @@ struct Cat: Equatable, Identifiable, Codable {
 }
 
 extension Cat {
+    var filteredTags: [String] {
+        tags.filter { !$0.isEmpty }
+    }
+    
     func imageUrl(width: CGFloat? = nil) -> URL {
         guard var components = URLComponents(string: "https://cataas.com/cat/\(id)") else {
             fatalError("malformed url")

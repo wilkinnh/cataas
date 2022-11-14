@@ -13,9 +13,9 @@ struct CatDetails: View {
     var body: some View {
         GeometryReader { geometry in
             List {
-                if !cat.tags.isEmpty {
+                if !cat.filteredTags.isEmpty {
                     Section("Tags") {
-                        ForEach(cat.tags, id: \.self) { tag in
+                        ForEach(cat.filteredTags, id: \.self) { tag in
                             NavigationLink {
                                 CatConjurer(tag: tag)
                             } label: {
