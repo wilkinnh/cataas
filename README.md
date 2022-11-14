@@ -1,7 +1,7 @@
 # Cat As A Service iOS App
 iOS app that consumes CATAAS (Cat As A Service)
 
-<p align="center">
+<p align="left">
     <img src="README-assets/list.png" width="200">
     <img src="README-assets/detail.png" width="200">
     <img src="README-assets/tag.png" width="200">
