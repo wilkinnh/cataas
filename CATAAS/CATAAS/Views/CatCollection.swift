@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CatCollection: View {
     var cats: [Cat]
-    var onLoadMore: () -> Void = {}
     
     private static let spacing: CGFloat = 1
     private let columns: [GridItem] = [
@@ -34,23 +33,6 @@ struct CatCollection: View {
                         }
                     }
                 }
-                
-//                Color.white
-//                    .frame(height: 44)
-//                    .overlay {
-//                        ProgressView()
-//                            .progressViewStyle(CircularProgressViewStyle())
-//                    }
-//                    .overlay {
-//                        GeometryReader { bottomGeometry in
-//                            Color.clear.preference(key: LoadMoreKey.self, value: bottomGeometry.frame(in: .global))
-//                        }
-//                    }
-//                    .onPreferenceChange(LoadMoreKey.self) { bottomFrame in
-//                        if bottomFrame.minY - geometry.safeAreaInsets.top < geometry.size.height {
-//                            onLoadMore()
-//                        }
-//                    }
             }
         }
     }

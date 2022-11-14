@@ -36,11 +36,6 @@ struct CatConjurer: View {
                 }
             }
     }
-    
-    func fetchPage(_ page: Int) {
-        NSLog("load page \(page)")
-        
-    }
 }
 
 struct CatConjurer_Previews: PreviewProvider {
