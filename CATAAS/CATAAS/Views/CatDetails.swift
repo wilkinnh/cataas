@@ -43,6 +43,11 @@ struct CatDetails: View {
             }
         }
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                ShareLink(item: cat.imageUrl())
+            }
+        }
     }
 }
 
