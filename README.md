@@ -1,6 +1,12 @@
 # Cat As A Service iOS App
 iOS app that consumes CATAAS (Cat As A Service)
 
+![List View](./README Assets/list.png)
+
+![Detail View](./README Assets/list.png)
+
+![Tag View](./README Assets/tag.png)
+
 # Features
 The main view is a grid of all available cats. Each cat is displayed with a photo and a tag count. Tapping on a photo will take you to a detail view where you can see a full list of the tags and the owner, if available. Each tag can also be tapped on to display all cats with the given tag.
 

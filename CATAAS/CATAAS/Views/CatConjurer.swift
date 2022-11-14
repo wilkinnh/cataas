@@ -16,7 +16,12 @@ struct CatConjurer: View {
     
     var body: some View {
         CatCollection(cats: cats)
-            .navigationTitle(tag)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                    Label(tag, systemImage: "tag")
+                        .labelStyle(TitleAndIconLabelStyle())
+                }
+            }
             .overlay {
                 if isLoading {
                     ProgressView()
