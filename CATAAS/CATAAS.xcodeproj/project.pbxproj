@@ -12,12 +12,12 @@
 		43059799291D780D00814C1B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 43059798291D780D00814C1B /* Preview Assets.xcassets */; };
 		430597A0291D7BF800814C1B /* CatConsumer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4305979F291D7BF800814C1B /* CatConsumer.swift */; };
 		430597A2291D7C0300814C1B /* Cat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597A1291D7C0300814C1B /* Cat.swift */; };
-		430597A8291D7C8600814C1B /* ReSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 430597A7291D7C8600814C1B /* ReSwift */; };
 		430597AA291D7D5F00814C1B /* CatCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597A9291D7D5F00814C1B /* CatCollection.swift */; };
 		430597AC291D7DFD00814C1B /* Cat+Example.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597AB291D7DFD00814C1B /* Cat+Example.swift */; };
 		430597AF291D868400814C1B /* CatConjurer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 430597AE291D868400814C1B /* CatConjurer.swift */; };
 		43B542E72921A3F400F7D607 /* CatDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B542E62921A3F400F7D607 /* CatDetails.swift */; };
 		43B542E92921C17E00F7D607 /* CatImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43B542E82921C17E00F7D607 /* CatImage.swift */; };
+		43FA0E6C29227EBE00D089B5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 43FA0E6B29227EBE00D089B5 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +33,7 @@
 		430597AE291D868400814C1B /* CatConjurer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatConjurer.swift; sourceTree = "<group>"; };
 		43B542E62921A3F400F7D607 /* CatDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatDetails.swift; sourceTree = "<group>"; };
 		43B542E82921C17E00F7D607 /* CatImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImage.swift; sourceTree = "<group>"; };
+		43FA0E6B29227EBE00D089B5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				430597A8291D7C8600814C1B /* ReSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +66,7 @@
 		43059790291D780B00814C1B /* CATAAS */ = {
 			isa = PBXGroup;
 			children = (
+				43FA0E6B29227EBE00D089B5 /* README.md */,
 				43059791291D780B00814C1B /* CATAASApp.swift */,
 				430597A4291D7C2100814C1B /* Model */,
 				430597A5291D7C2E00814C1B /* Views */,
@@ -122,7 +123,6 @@
 			);
 			name = CATAAS;
 			packageProductDependencies = (
-				430597A7291D7C8600814C1B /* ReSwift */,
 			);
 			productName = CATAAS;
 			productReference = 4305978E291D780B00814C1B /* CATAAS.app */;
@@ -153,7 +153,6 @@
 			);
 			mainGroup = 43059785291D780B00814C1B;
 			packageReferences = (
-				430597A6291D7C8600814C1B /* XCRemoteSwiftPackageReference "ReSwift" */,
 			);
 			productRefGroup = 4305978F291D780B00814C1B /* Products */;
 			projectDirPath = "";
@@ -169,6 +168,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43FA0E6C29227EBE00D089B5 /* README.md in Resources */,
 				43059799291D780D00814C1B /* Preview Assets.xcassets in Resources */,
 				43059796291D780D00814C1B /* Assets.xcassets in Resources */,
 			);
@@ -317,6 +317,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CATAAS/Preview Content\"";
+				DEVELOPMENT_TEAM = JX4P7MGZX9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CATAAS/Info.plist;
@@ -346,6 +347,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"CATAAS/Preview Content\"";
+				DEVELOPMENT_TEAM = JX4P7MGZX9;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CATAAS/Info.plist;
@@ -389,25 +391,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		430597A6291D7C8600814C1B /* XCRemoteSwiftPackageReference "ReSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReSwift/ReSwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		430597A7291D7C8600814C1B /* ReSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 430597A6291D7C8600814C1B /* XCRemoteSwiftPackageReference "ReSwift" */;
-			productName = ReSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 43059786291D780B00814C1B /* Project object */;
 }
